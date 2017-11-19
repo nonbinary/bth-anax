@@ -52,25 +52,25 @@ clean-cache:
 
 
 # target: site-build          - Copy default structure from Anax Flat.
-.PHONY: site-build
-site-build:
-	@$(call HELPTEXT,$@)
-
-	@$(ECHO) "$(ACTION)Copy from anax-flat$(NO_COLOR)"
-	rsync -a vendor/mos/anax-flat/htdocs/ htdocs/
-	rsync -a vendor/mos/anax-flat/config/ config/
-	rsync -a vendor/mos/anax-flat/content/ content/
-	rsync -a vendor/mos/anax-flat/view/ view/
-
-	@$(ECHO) "$(ACTION)Copy from CImage$(NO_COLOR)"
-	install -d htdocs/cimage
-	rsync -a vendor/mos/cimage/webroot/imgd.php htdocs/cimage/imgd.php
-	rsync -a vendor/mos/cimage/icc/ htdocs/cimage/icc/
-
-	@$(ECHO) "$(ACTION)Create the directory for the cache items$(NO_COLOR)"
-	install -d -m 777 cache/cimage cache/anax
-
-
+#.PHONY: site-build
+#site-build:
+#	@$(call HELPTEXT,$@)
+#
+#	@$(ECHO) "$(ACTION)Copy from anax-flat$(NO_COLOR)"
+#	rsync -a vendor/mos/anax-flat/htdocs/ htdocs/
+#	rsync -a vendor/mos/anax-flat/config/ config/
+#	rsync -a vendor/mos/anax-flat/content/ content/
+#	rsync -a vendor/mos/anax-flat/view/ view/
+#
+#	@$(ECHO) "$(ACTION)Copy from CImage$(NO_COLOR)"
+#	install -d htdocs/cimage
+#	rsync -a vendor/mos/cimage/webroot/imgd.php htdocs/cimage/imgd.php
+#	rsync -a vendor/mos/cimage/icc/ htdocs/cimage/icc/
+#
+#	@$(ECHO) "$(ACTION)Create the directory for the cache items$(NO_COLOR)"
+#	install -d -m 777 cache/cimage cache/anax
+#
+#
 
 # target: site-update         - Make composer update and copy latest files.
 .PHONY: site-update
@@ -103,3 +103,9 @@ theme:
 # test:
 # 	@$(call HELPTEXT,$@)
 # 	[ ! -d theme ] || $(MAKE) -C theme test
+#
+
+# target: upgrade                 - Upgrade external LESS modules.
+.PHONY: upgrade
+upgrade: upgrade-normalize upgrade-responsive-menu
+	@$(call HELPTEXT,$@)
