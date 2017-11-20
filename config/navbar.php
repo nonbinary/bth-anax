@@ -47,6 +47,12 @@ return [
         // Here comes the menu structure
         "items" => [
 
+            "test" => [
+                "text" => t("Test"),
+                "url" => $this->di->get("url")->create("test"),
+                "title" => t("Test page"),
+            ],
+
             "report" => [
                 "text"  => t("Report"),
                 "url"   => $this->di->get("url")->create("report"),
