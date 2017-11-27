@@ -31,6 +31,12 @@ return [
                 "url"   => $this->di->get("url")->create("about"),
                 "title" => t("About this website")
             ],
+
+            "grid" => [
+                "text"  => t("Grid"),
+                "url"   => $this->di->get("url")->create("grid"),
+                "title" => t("Grid visualization")
+            ],
         ],
     ],
 
@@ -65,9 +71,14 @@ return [
                 "url"   => $this->di->get("url")->create("about"),
                 "title" => t("About this website")
             ],
+
+            "grid" => [
+                "text"  => t("Grid"),
+                "url"   => $this->di->get("url")->create("grid"),
+                "title" => t("Grid visualization")
+            ],
         ],
     ],
-
 
     /**
      * Callback tracing the current selected menu item base on scriptname
